@@ -133,9 +133,12 @@ public class SquirrelList implements Iterable<Squirrel>, Collection<Squirrel> {
      */
     @Override
     public boolean isEmpty() {
+        int squirrel_size = size();
+        if(squirrel_size == 0){
+            return true;
+        }
         return false;
     }
-
     /**
      * TODO: Implement this
      * @param o
@@ -143,6 +146,11 @@ public class SquirrelList implements Iterable<Squirrel>, Collection<Squirrel> {
      */
     @Override
     public boolean contains(Object o) {
+        for(SquirrelLink c = mFirst; c != null; c = c.getNext()){
+            if(c.equals(o)){
+                return true;
+            }
+        }//if reach to the end of loop but still not return, then contains is false
         return false;
     }
 
